@@ -1,12 +1,16 @@
 import configparser
+import os
 
 config = configparser.RawConfigParser()
 
-config_path = "Config.ini"
+# ALWAYS point relative to THIS file (works in GitHub + Jenkins + local)
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+config_path = os.path.join(BASE_DIR, "Config.ini")
+
 files_loaded = config.read(config_path)
 
 if not files_loaded:
-    raise FileNotFoundError("Config.ini not found")
+    raise FileNotFoundError(f"Config.ini not found at {config_path}")
 
 
 def get_application_url():
