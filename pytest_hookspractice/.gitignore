@@ -1,0 +1,17 @@
+# Python cache
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Virtual environment
+
+
+# Reports
+reports/
+pytest_hooks/Reports/
+assets/
+report.html
+.allure/
+
+# Logs
+*.log
